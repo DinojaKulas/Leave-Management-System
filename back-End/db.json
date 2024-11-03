@@ -1,76 +1,63 @@
 {
   "employees": [
     {
-      "id": "EMP_Dy4kP",
-      "employeeId": "EMP_Dy4kP",
-      "nic": "92312212V",
-      "firstName": "Jerobert",
-      "lastName": "zachariah",
-      "dob": "2015-01-06",
-      "doj": "2024-09-03"
-    },
-    {
-      "id": "EMP_4SK8Q",
-      "employeeId": "EMP_4SK8Q",
-      "nic": "723451278V",
-      "firstName": "Nelson",
-      "lastName": "Mandella",
-      "dob": "1972-12-05",
+      "id": "EMP_KaYVb",
+      "empId": "EMP_KaYVb",
+      "nic": "12345V",
+      "firstName": "Raju",
+      "lastName": "Bai",
+      "dob": "2024-09-02",
       "doj": "2024-09-01"
     },
     {
-      "id": "EMP_ocYiG",
-      "employeeId": "EMP_ocYiG",
-      "nic": "12356789",
-      "firstName": "dino",
-      "lastName": "diva",
-      "dob": "2024-11-02",
-      "doj": "2024-11-29"
+      "id": "EMP_imrxd",
+      "employeeId": "EMP_imrxd",
+      "nic": "2002123456",
+      "firstName": "john",
+      "lastName": "doe",
+      "dob": "2002-01-02",
+      "doj": "2024-12-09"
     }
   ],
   "users": [
     {
-      "id": "EMP_Dy4kP",
-      "employeeId": "EMP_Dy4kP",
-      "username": "EMP_Dy4kP",
+      "id": "EMP_KaYVb",
+      "empId": "EMP_KaYVb",
+      "username": "EMP_KaYVb",
       "password": "pwd123",
       "role": "Employee"
     },
     {
-      "id": "EMP_4SK8Q",
-      "employeeId": "EMP_4SK8Q",
-      "username": "EMP_4SK8Q",
-      "password": "pwd123",
-      "role": "Employee"
-    },
-    {
-      "id": "EMP_ocYiG",
-      "employeeId": "EMP_ocYiG",
-      "username": "EMP_ocYiG",
+      "id": "EMP_imrxd",
+      "employeeId": "EMP_imrxd",
+      "username": "EMP_imrxd",
       "password": "pwd123",
       "role": "Employee"
     }
   ],
   "leaveRequests": [
     {
-      "id": "e491",
-      "reason": "trip",
+      "id": "1",
+      "employeeId": "EMP_KaYVb",
+      "reason": "sick",
       "dateFrom": "2024-09-12",
-      "numOfDays": "2",
-      "applicationDate": "2024-09-06",
-      "status": "Approved",
-      "processedDate": "2024-09-05"
+      "numOfDays": 2
     },
     {
-      "id": "a86b",
+      "id": "2",
+      "employeeId": "EMP_KaYVb",
       "reason": "party",
-      "dateFrom": "2024-09-17",
-      "numOfDays": "1",
-      "applicationDate": "2024-09-06",
-      "status": "Rejected",
-      "processedDate": "2024-09-05",
-      "rejectionReason": "cant allow"
+      "dateFrom": "2024-09-20",
+      "numOfDays": 4
+    },
+    {
+      "id": "c695",
+      "employeeId": "EMP_imrxd",
+      "reason": "trip",
+      "dateFrom": "2024-09-30",
+      "numOfDays": "2",
+      "applicationDate": "2024-09-26",
+      "status": "Pending"
     }
   ]
- 
 }
