@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    
+
     if (!loggedInUser) {
         alert('You must log in first!');
         window.location.href = 'login.html';
@@ -26,41 +26,47 @@ document.addEventListener('DOMContentLoaded', async function () {
     statusFilter.addEventListener('change', function () {
         renderLeaveRequests();
     });
-    
+
     async function loadLeaveRequests() {
         try {
-            const response = await fetch('http://localhost:3000/leaveRequests');
+            const response = await fetch('http://localhost:3000/leaveRequests?employeeId_ne=${loggedInUser.employeeId}&_embed=employee');
             leaveRequests = await response.json();
             renderLeaveRequests();
         } catch (error) {
             console.error('Error:', error);
         }
     }
+
     function renderLeaveRequests() {
         const status = statusFilter.value;
         leaveRequestsList.innerHTML = '';
+
         const filteredRequests = leaveRequests.filter(request => {
             return status === 'all' || request.status.toLowerCase() === status;
         });
+
         filteredRequests.forEach(request => {
             const li = document.createElement('li');
             li.classList.add('leave-item');
             li.innerHTML = `
-<div>Reason: ${request.reason}</div>
-<div>From: ${request.dateFrom}</div>
-<div>Days: ${request.numOfDays}</div>
-<div>Applied on: ${request.applicationDate}</div>
-<div>Status: <span class="status
-${request.status.toLowerCase()}">${request.status}</span></div>
-${request.status === 'Pending' ? `
-<button class="btn-approve" data-id="${request.id}">Approve</button>
-<button class="btn-reject" data-id="${request.id}">Reject</button>` : ''}
-`;
+            <div><b>Requested By : ${request.employee.firstName + " " + request.employee.lastName}</b></div>
+            <div>Reason: ${request.reason}</div>
+            <div>From: ${request.dateFrom}</div>
+            <div>Days: ${request.numOfDays}</div>
+            <div>Applied on: ${request.applicationDate}</div>
+            <div>Status: <span class="status ${request.status.toLowerCase()}">${request.status}</span></div>
+            ${request.status === 'Pending' ? `
+            <button class="btn-approve" data-id="${request.id}">Approve</button>
+            <button class="btn-reject" data-id="${request.id}">Reject</button>` : ''}
+           `;
+
             leaveRequestsList.appendChild(li);
         });
+
         document.querySelectorAll('.btn-approve').forEach(button => {
             button.addEventListener('click', handleApprove);
         });
+
         document.querySelectorAll('.btn-reject').forEach(button => {
             button.addEventListener('click', handleReject);
         });
@@ -87,6 +93,7 @@ ${request.status === 'Pending' ? `
     }
     const rejectModal = document.getElementById('rejectModal');
     const rejectForm = document.getElementById('rejectForm');
+
     let requestToReject = null;
     function handleReject(event) {
         requestToReject = leaveRequests.find(req => req.id == event.target.dataset.id);
