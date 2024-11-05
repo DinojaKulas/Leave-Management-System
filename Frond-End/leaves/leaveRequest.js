@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (response.ok) {
                 alert('Leave request submitted successfully!');
                 leaveRequestForm.reset();
-                loadLeaveRequests(loggedInUser.empId);
+                loadLeaveRequests(loggedInUser.employeeId);
             } else {
                 alert('Failed to submit leave request.');
             }

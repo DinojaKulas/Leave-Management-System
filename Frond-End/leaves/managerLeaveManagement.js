@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    
     if (!loggedInUser) {
         alert('You must log in first!');
         window.location.href = 'login.html';
         return;
     }
+
     // Display welcome message
     const welcomeMessage = document.getElementById('welcomeMessage');
     welcomeMessage.textContent = `Welcome, ${loggedInUser.firstName}
     ${loggedInUser.lastName}`;
+
     // Logout button functionality
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', function () {
@@ -16,12 +19,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         alert('You have been logged out.');
         window.location.href = 'login.html';
     });
+
     const statusFilter = document.getElementById('statusFilter');
     const leaveRequestsList = document.getElementById('leaveRequests');
     let leaveRequests = [];
     statusFilter.addEventListener('change', function () {
         renderLeaveRequests();
     });
+    
     async function loadLeaveRequests() {
         try {
             const response = await fetch('http://localhost:3000/leaveRequests');
