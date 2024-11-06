@@ -88,46 +88,36 @@
     </style>
 </head>
 
-<body>
-
-    <nav class="navbar">
-        <div class="navbar-left">
-            <a href="#" class="company-name">UnicomTIC</a>
-        </div>
-        <div class="navbar-right">
-            <a href="#" class="menu-item">Employee</a>
-            <div class="dropdown">
-                <button class="dropbtn">Leave Management</button>
-                <div class="dropdown-content">
-                    <a href="#">Apply Leave</a>
-                    <a href="#">Manage Leave</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
 
-    <div class="container">
-        <div class="header">
-            <h2 id="welcomeMessage"></h2>
-            <button id="logoutButton" class="btn-logout">Logout</button>
-        </div>
-        <h2>Submit Leave Request</h2>
-        <form id="leaveRequestForm" class="form">
-            <label for="reason">Reason:</label>
-            <input type="text" id="reason" name="reason" required><br><br>
-            <label for="dateFrom">From:</label>
-            <input type="date" id="dateFrom" name="dateFrom" required><br><br>
-            <label for="numOfDays">Number of Days:</label>
-            <input type="number" id="numOfDays" name="numOfDays" required><br><br>
-            <label for="applicationDate">Application Date:</label>
-            <input type="date" id="applicationDate" name="applicationDate" required><br><br>
-            <button type="submit" class="btn">Submit</button>
-        </form>
-        <h3>Your Leave Requests</h3>
-        <ul id="leaveRequests" class="leave-list"></ul>
+
+
+<div class="container">
+    <div class="header">
+        <h2 id="welcomeMessage"></h2>
+        <button id="logoutButton" class="btn-logout">Logout</button>
     </div>
-    <script src="leaveRequest.js"></script>
+
+    <h2>Submit Leave Request</h2>
+    <form id="leaveRequestForm" class="form">
+        <label for="reason">Reason:</label>
+        <input type="text" id="reason" name="reason" required><br><br>
+
+        <label for="dateFrom">From:</label>
+        <input type="date" id="dateFrom" name="dateFrom" required><br><br>
+
+        <label for="numOfDays">Number of Days:</label>
+        <input type="number" id="numOfDays" name="numOfDays" required><br><br>
+
+        <label for="applicationDate">Application Date:</label>
+        <input type="date" id="applicationDate" name="applicationDate" required><br><br>
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <h3>Your Leave Requests</h3>
+    <ul id="leaveRequests" class="leave-list"></ul>
+</div>
+<script src="leaveRequest.js"></script>
 </body>
 
 </html>
