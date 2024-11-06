@@ -10,13 +10,22 @@
       "doj": "2024-09-01"
     },
     {
-      "id": "EMP_imrxd",
-      "employeeId": "EMP_imrxd",
-      "nic": "2002123456",
-      "firstName": "john",
-      "lastName": "doe",
-      "dob": "2002-01-02",
-      "doj": "2024-12-09"
+      "id": "EMP_mUjyh",
+      "employeeId": "EMP_mUjyh",
+      "nic": "123",
+      "firstName": "j",
+      "lastName": "g",
+      "dob": "2024-11-08",
+      "doj": "2024-11-22"
+    },
+    {
+      "id": "EMP_5biSM",
+      "employeeId": "EMP_5biSM",
+      "nic": "opkop",
+      "firstName": "kopkop",
+      "lastName": "j",
+      "dob": "2024-11-06",
+      "doj": "2024-11-29"
     }
   ],
   "users": [
@@ -28,9 +37,16 @@
       "role": "Employee"
     },
     {
-      "id": "EMP_imrxd",
-      "employeeId": "EMP_imrxd",
-      "username": "EMP_imrxd",
+      "id": "EMP_mUjyh",
+      "employeeId": "EMP_mUjyh",
+      "username": "EMP_mUjyh",
+      "password": "pwd123",
+      "role": "Employee"
+    },
+    {
+      "id": "EMP_5biSM",
+      "employeeId": "EMP_5biSM",
+      "username": "EMP_5biSM",
       "password": "pwd123",
       "role": "Employee"
     }
@@ -52,7 +68,7 @@
     },
     {
       "id": "c695",
-      "employeeId": "EMP_imrxd",
+      "employeeId": null,
       "reason": "trip",
       "dateFrom": "2024-09-30",
       "numOfDays": "2",

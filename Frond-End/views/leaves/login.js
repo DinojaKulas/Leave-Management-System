@@ -7,9 +7,9 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     try {
         // Fetch user data with embedded employee data
 
-        // http://localhost:3000/users?_embed=employee&username=EMP_L6Zae&password=pwd123
+        //http://localhost:3000/users?_embed=employee&username=EMP_L6Zae&password=pwd123
 
-        const response = await fetch(`http://localhost:4000/users?username=${username}&password=${password}&_embed=employee`);
+        const response = await fetch(`http://localhost:3000/users?username=${username}&password=${password}&_embed=employee`);
 
         const users = await response.json();
 
@@ -33,7 +33,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
                 alert('Login successful!');
-                window.location.href = 'leaveRequest.html';
+               window.location.href = 'leaveRequest.html';
             } else {
                 alert('Employee data not found.');
             }
