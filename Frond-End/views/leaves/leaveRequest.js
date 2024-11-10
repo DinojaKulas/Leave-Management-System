@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
-    console.log("logged In user :", loggedInUser);
+   // let employeeeId =0
+   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+   console.log("logged In user :", loggedInUser);
 
 
     if (!loggedInUser) {
@@ -39,8 +41,10 @@ document.addEventListener('DOMContentLoaded', async function () {
             return;
         }
 
+ 
+
         const newLeaveRequest = {
-            employeeId: loggedInUser.employeeId,
+            employeeId:loggedInUser.employeeId,
             reason,
             dateFrom,
             numOfDays,
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.log("newLeaveRequest :", newLeaveRequest)
 
         try {
-            const response = await fetch('http://localhost:3000/leaveRequests', {
+            const response = await fetch('http://localhost:3001/leaveRequests', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -59,9 +63,10 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             if (response.ok) {
-                alert('Leave request submitted successfully!');
-                leaveRequestForm.reset();
-                loadLeaveRequests(loggedInUser.employeeId);
+               // alert('Leave request submitted successfully!');
+                //leaveRequestForm.reset();
+               let  employeeeId =loggedInUser.employeeId
+                loadLeaveRequests(employeeeId);
             } else {
                 alert('Failed to submit leave request.');
             }
@@ -71,11 +76,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 
-    async function loadLeaveRequests(employeeId) {
-        try {
-            const response = await fetch(`http://localhost:3000/leaveRequests?employeeId=${employeeId}`);
-            const leaveRequests = await response.json();
+    async function loadLeaveRequests(employeeeId) {
 
+console.log(employeeeId)
+
+
+        try {
+
+            const response = await fetch(`http://localhost:3000/leaveRequests?employeeId=${employeeeId}`);
+           
+            const leaveRequests = await response.json();
+            console.log(leaveRequests)
             leaveRequestsList.innerHTML = '';
             leaveRequests.forEach(request => {
                 const li = document.createElement('li');
@@ -95,5 +106,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 
-    loadLeaveRequests(loggedInUser.employeeId);
+    //employeeId =23
+       loadLeaveRequests(loggedInUser.employeeId);
 });
